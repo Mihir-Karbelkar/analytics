@@ -1,3 +1,4 @@
+"use client";
 import { DataTagSkeleton, DataTags } from "@/components/data-tag";
 import ActivityComponent from "@/components/activity-component";
 import Input from "@/components/overriden/input";
@@ -7,9 +8,10 @@ import TopProductsComponent from "@/components/top-products";
 import ScheduleComponent from "@/components/schedule";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { useSession } from "next-auth/react";
 
 export default async function Dashboard() {
-  const session = await getServerSession(authOptions);
+  const { data: session } = useSession();
   return (
     <>
       <div className="w-full h-full flex flex-col gap-10">

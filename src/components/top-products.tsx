@@ -64,7 +64,7 @@ const TopProductsComponent = () => {
         </div>
         <div className="flex-1">
           {topProductsData.map(({ percentage, productName }) => (
-            <div className="mb-2">
+            <div className="mb-2" key={productName}>
               <div className="flex items-center">
                 <div
                   className="rounded-full w-4 h-4 mr-4"

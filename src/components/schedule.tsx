@@ -50,7 +50,7 @@ const ScheduleComponent = () => {
     <div className="flex-1 flex flex-col justify-between bg-white  rounded-xl p-4 px-8">
       <div className="flex justify-between">
         <div className="text-secondary text-lg font-bold font-sans">
-          Today's Schedule
+          {`Today's Schedule`}
         </div>
         <div className="text-gray-300 text-sm flex">
           See All
@@ -59,7 +59,7 @@ const ScheduleComponent = () => {
       </div>
       <div className="mt-4">
         {events.map((event) => (
-          <EventComponent {...event} />
+          <EventComponent key={event.eventName} {...event} />
         ))}
       </div>
     </div>
