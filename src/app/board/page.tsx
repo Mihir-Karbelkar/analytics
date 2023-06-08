@@ -1,13 +1,10 @@
 "use client";
-import { DataTagSkeleton, DataTags } from "@/components/data-tag";
+import { DataTags } from "@/components/data-tag";
 import ActivityComponent from "@/components/activity-component";
 import Input from "@/components/overriden/input";
 
-import { Suspense } from "react";
 import TopProductsComponent from "@/components/top-products";
 import ScheduleComponent from "@/components/schedule";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { useSession } from "next-auth/react";
 
 export default async function Dashboard() {
@@ -21,8 +18,14 @@ export default async function Dashboard() {
               Dashboard
             </div>
             <div className="flex justify-between items-center">
-              <div className="mr-10">
-                <Input className="bg-white" placeholder="Search..." />
+              <div className="mr-10 relative">
+                <Input
+                  className="bg-white pl-4 font-lato"
+                  placeholder="Search..."
+                />
+                <div className=" absolute right-0 top-1/2 -translate-x-1/2 -translate-y-1/2 ">
+                  <span className="icon icon-search !h-4 !w-4 mr-2 mt-1 !bg-[#858585] "></span>
+                </div>
               </div>
               <div className="mr-10">
                 <span className="icon icon-bell !h-6 !w-6 !bg-secondary"></span>

@@ -57,6 +57,9 @@ body {
 .icon-bell {
   mask: url(/icons/bell.svg);
 }
+.icon-search {
+  mask: url(/icons/search.svg);
+}
 
 .icon {
   display: inline-block;

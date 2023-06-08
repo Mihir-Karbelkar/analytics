@@ -2,7 +2,7 @@ import NavBar from "@/components/navbar";
 
 export const metadata = {
   title: "Dahboard",
-  description: "See your analytics here",
+  description: "See your analytics here!",
 };
 
 export default function RootLayout({
