@@ -35,9 +35,9 @@ const ActivityComponent = () => {
       <div className="flex justify-between">
         <div className="text-secondary text-lg font-bold font-sans">
           Activities
-          <div className="text-gray-300 text-sm flex items-center">
-            May-Jun
-            <span className="icon icon-down-arrow !bg-gray-300"></span>
+          <div className="text-gray-300 font-normal  text-sm flex items-center">
+            May - Jun 2021
+            <span className="icon icon-down-arrow !bg-gray-300 !w-2 !h-2 ml-2"></span>
           </div>
         </div>
       </div>

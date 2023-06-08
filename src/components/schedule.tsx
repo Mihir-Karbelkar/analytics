@@ -52,9 +52,9 @@ const ScheduleComponent = () => {
         <div className="text-secondary text-lg font-bold font-sans">
           {`Today's Schedule`}
         </div>
-        <div className="text-gray-300 text-sm flex">
+        <div className="text-gray-300 text-sm flex items-center">
           See All
-          {/* <span className="icon icon-down-arrow !bg-gray-300 !w-2 !h-2 -rotate-90"></span> */}
+          <span className="icon icon-down-arrow !bg-gray-300 !w-2 !h-2 -rotate-90 ml-2"></span>
         </div>
       </div>
       <div className="mt-4">

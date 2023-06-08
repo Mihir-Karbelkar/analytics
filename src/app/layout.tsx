@@ -38,6 +38,20 @@ const lato = localFont({
   variable: "--font-lato",
 });
 
+const montserrat = localFont({
+  src: [
+    {
+      path: "../../public/fonts/montserrat/Montserrat-Regular.ttf",
+      weight: "400",
+    },
+    {
+      path: "../../public/fonts/montserrat/Montserrat-Bold.ttf",
+      weight: "700",
+    },
+  ],
+  variable: "--font-montserrat",
+});
+
 export default async function RootLayout({
   children,
 }: {
@@ -46,7 +60,7 @@ export default async function RootLayout({
   const session = await getSession(headers().get("cookie") ?? "");
   console.log(session, "ROOT LAYOUT SESSION");
   return (
-    <html lang="en" className={`${lato.variable}`}>
+    <html lang="en" className={`${lato.variable} ${montserrat.variable}`}>
       <body>
         <AuthContext session={session}>{children}</AuthContext>
       </body>
