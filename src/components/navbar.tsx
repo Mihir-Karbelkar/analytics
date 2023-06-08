@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "./overriden/link";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 const links = [
   {
@@ -44,8 +44,11 @@ const NavBar = () => {
       text: "Contact Us",
     },
     {
-      href: "/api/auth/signout",
+      href: "#",
       text: "Signout",
+      onClick: () => {
+        signOut({ callbackUrl: "/" });
+      },
       hide: status === "unauthenticated",
     },
   ];
@@ -79,6 +82,9 @@ const NavBar = () => {
               className={`w-full text-primary text-md ${
                 link.href === segment ? "font-bold " : ""
               }`}
+              onClick={() => {
+                link?.onClick?.();
+              }}
             >
               {link.text}
             </Link>

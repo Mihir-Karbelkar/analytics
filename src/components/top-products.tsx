@@ -2,7 +2,7 @@
 import PieChart from "@/components/pie-chart";
 import { api } from "@/utils/api";
 import stringToColor from "@/utils/string-to-color";
-import { use } from "react";
+import { use, useEffect, useState } from "react";
 
 type Product = {
   productName: string;
@@ -16,8 +16,18 @@ const getTopProducts = async (): Promise<Product[]> => {
 };
 
 const TopProductsComponent = () => {
-  const topProductsData = use(getTopProducts());
-  return (
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [topProductsData, setTopProductsData] = useState<Product[]>([]);
+  useEffect(() => {
+    setIsLoading(true);
+    getTopProducts().then((data) => {
+      setTopProductsData(data);
+      setIsLoading(false);
+    });
+  }, []);
+  return isLoading ? (
+    <div className="flex-1 flex flex-col justify-between px-8 rounded-xl p-4 animate-pulse h-[300px] w-full bg-gray-300"></div>
+  ) : (
     <div className="flex-1 flex flex-col justify-between bg-white  rounded-xl p-4 px-8">
       <div className="flex justify-between">
         <div className="text-secondary text-lg font-bold font-sans">

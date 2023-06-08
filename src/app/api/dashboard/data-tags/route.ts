@@ -2,26 +2,26 @@ import { NextResponse } from "next/server";
 
 const data = [
   {
-    icon: "test",
+    icon: "icon-revenue",
     tagTitle: "Total Revenues",
     tagSubTitle: "$231,122,121",
   },
 
   {
-    icon: "test",
-    tagTitle: "Total Revenue",
-    tagSubTitle: "$231,122,121",
+    icon: "icon-transaction",
+    tagTitle: "Total Transactions",
+    tagSubTitle: "1,520",
   },
   {
-    icon: "test",
-    tagTitle: "Total Revens",
-    tagSubTitle: "$231,122,121",
+    icon: "icon-like",
+    tagTitle: "Total Likes",
+    tagSubTitle: "9,721",
   },
 
   {
-    icon: "test",
-    tagTitle: "Total Revens",
-    tagSubTitle: "$231,122,121",
+    icon: "icon-users",
+    tagTitle: "Total Users",
+    tagSubTitle: "892",
   },
 ];
 function delay(ms: number) {

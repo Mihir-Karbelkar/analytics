@@ -54,6 +54,9 @@ body {
 .icon-users {
   mask: url(/icons/users.svg);
 }
+.icon-bell {
+  mask: url(/icons/bell.svg);
+}
 
 .icon {
   display: inline-block;

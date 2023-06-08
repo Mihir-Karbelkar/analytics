@@ -1,6 +1,6 @@
 "use client";
 import stringToColor from "@/utils/string-to-color";
-import { use } from "react";
+import { useEffect, useState } from "react";
 import LineChart from "./line-chart";
 import { api } from "@/utils/api";
 type Activity = {
@@ -13,12 +13,32 @@ const getActivitiesData = async (): Promise<Activity[]> => {
     .then((data) => data["data"]);
 };
 const ActivityComponent = () => {
-  const linechartData = use(getActivitiesData());
-  return (
-    <div className="flex-1 flex flex-col justify-between bg-white  rounded-xl p-4 px-8">
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [linechartData, setLinechartData] = useState<Activity[]>([]);
+  useEffect(() => {
+    setIsLoading(true);
+    getActivitiesData().then((data) => {
+      setLinechartData(data);
+      setIsLoading(false);
+    });
+  }, []);
+  return isLoading ? (
+    <div
+      className="rounded-xl p-4 animate-pulse h-[300px] w-full bg-gray-300"
+      key="loader"
+    ></div>
+  ) : (
+    <div
+      className="flex-1 flex flex-col justify-between bg-white  rounded-xl p-4 px-8"
+      key="loaded-data"
+    >
       <div className="flex justify-between">
         <div className="text-secondary text-lg font-bold font-sans">
           Activities
+          <div className="text-gray-300 text-sm flex items-center">
+            May-Jun
+            <span className="icon icon-down-arrow !bg-gray-300"></span>
+          </div>
         </div>
       </div>
       <div>
